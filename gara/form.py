@@ -2,6 +2,7 @@ from django import forms
 from django.forms import CharField
 from django.core import validators
 from django.core.validators import validate_email
+from .models import SignUp
 
 
 
@@ -21,3 +22,12 @@ class RegisterForm(forms.Form):
     username = forms.CharField(label='Username', max_length=100)
     password = forms.CharField(widget=forms.PasswordInput)
     email = forms.EmailField(label='Email')
+
+
+class NameForm(forms.Form):
+    your_name = forms.CharField(label='Your name', max_length=100)
+
+class SignUpForm(forms.ModelForm):
+    class Meta:
+        model = SignUp
+        fields = ['email']

@@ -16,8 +16,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+# admin.autodiscover()
+
+
 urlpatterns = [
+    url(r'^$', 'blog.views.home', name='home'),
     url(r'^admin/', admin.site.urls),
     url(r'^gara/', include('gara.urls')),
-    url(r'^', include('snippets.urls')),
+    # url(r'^', include('snippets.urls')),
 ]
